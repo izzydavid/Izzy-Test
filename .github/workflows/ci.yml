@@ -7,28 +7,18 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  display:
     runs-on: ubuntu-latest
+    env: 
+      platform: Azure
+      region: central
+      profile_path: profile/
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Display custom environment variables
+        if:  ${{ env.platform == 'Central'}}
+        run: |
+          echo "The platform is ${{ env.platform }}"
+          echo "The region is $region"
 
-      - name: List all files
-        run: ls
-
-      - name: Install Python
-        uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.10'
-
-      - name: Run Python Script
-        run: python create_file.py
-
-      - name: List all NEW files
-        run: ls
-
-# install Python
-# Create a new file
-# List the files again (prove that python worked)
 
