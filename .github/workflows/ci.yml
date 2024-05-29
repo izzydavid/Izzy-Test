@@ -13,13 +13,22 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Run a one-line-script
-        run: echo Hello, world!
+      - name: List all files
+        run: ls
 
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy project. 
+      - name: Install Python
+        uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
 
-      - name: Run another script
-        run: echo this a new command!
+      - name: Run Python Script
+        run: python create_file.py
+
+      - name: List all NEW files
+        run: ls
+
+# install Python
+# Create a new file
+# List the files again (prove that python worked)
+
