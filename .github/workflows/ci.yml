@@ -23,7 +23,7 @@ jobs:
         
       - name: Display GH Default env vars
         run: |
-            echo "Github Actor: $GITHUB_ACTOR"
-            echo: "Github Ref: $GITHUB_REF"
+          echo "Github Actor: $GITHUB_ACTOR"
+          echo: "Github Ref: $GITHUB_REF"
 
 
