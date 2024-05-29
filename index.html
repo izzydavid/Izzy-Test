@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Large Dataset in JSON Example</title>
+  <meta charset="UTF-8">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+  <h1>Large Dataset in JSON Example 2</h1>
+
+  <div>
+    <label for="filter-id">Filter by Id:</label>
+    <input type="text" id="filter-id" />
+  </div>
+  <div>
+    <label for="filter-name">Filter by Name:</label>
+    <input type="text" id="filter-name" />
+  </div>
+  <div>
+    <label for="filter-age">Filter by Age:</label>
+    <input type="text" id="filter-age" />
+  </div>
+  <div>
+    <label for="filter-email">Filter by Email:</label>
+    <input type="text" id="filter-email" />
+  </div>
+
+  <table id="myTable">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    $(document).ready(function () {
+      $.getJSON("mydata.json", function (data) {
+        $.each(data, function (key, value) {
+          var row = $("<tr>");
+          $.each(value, function (key, value) {
+            $("<td>").text(value).appendTo(row);
+          });
+          $("#myTable tbody").append(row);
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>
